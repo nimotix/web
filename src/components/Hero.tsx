@@ -27,7 +27,7 @@ export function Hero() {
       <div className="hero__inner container">
         <div className="hero__copy">
           <h1 id="hero-title" className="hero__title">
-            Diseñamos y desarrollamos apps web, móviles y de escritorio.
+            Sistematizamos tu idea
           </h1>
           <p className="hero__lead">
             Somos Nimotix, un equipo de estudiantes desarrolladores. Nos encargamos del diseño, el código, la publicación

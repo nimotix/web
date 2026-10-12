@@ -15,7 +15,7 @@ import { Home, MessageSent, NotFound } from './pages/Pages';
 import { usePath } from './router';
 
 const TITLES: Record<string, string> = {
-  '/': 'Nimotix · Diseñamos y desarrollamos apps web, móviles y de escritorio',
+  '/': 'Nimotix · Sistematizamos tu idea',
   '/terminos': 'Términos y condiciones · Nimotix',
   '/privacidad': 'Política de privacidad · Nimotix',
   '/contacto/enviado': 'Mensaje enviado · Nimotix',
