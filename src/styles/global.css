@@ -293,6 +293,8 @@ textarea {
    entra cuando el bloque del símbolo (mismo ciclo de 8.8s) toma su color. */
 .lemas {
   display: grid;
+  /* Los lemas de una línea (Nimotix.) quedan pegados al texto de abajo en vez de flotar arriba. */
+  align-items: end;
 }
 
 .lema {
@@ -401,7 +403,7 @@ textarea {
 }
 
 .hero__lead {
-  margin-top: 28px;
+  margin-top: 20px;
   max-width: 580px;
   font-size: 20px;
   line-height: 30px;

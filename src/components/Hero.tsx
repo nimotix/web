@@ -8,7 +8,7 @@ const APPS = [
 
 /** Un lema por color del símbolo, en el mismo orden del giro: Ni (lima), Mo (rosa), Ti (verde azulado). */
 const LEMAS = [
-  { prefix: 'ni', rest: 'velamos tu empresa.' },
+  { prefix: 'ni', rest: 'velamos tu negocio.' },
   { prefix: 'mo', rest: 'dernizamos tu gestión.' },
   { prefix: 'ti', rest: 'empos optimizados.' },
 ];
