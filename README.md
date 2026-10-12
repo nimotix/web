@@ -33,7 +33,7 @@ El ruteo es propio (`src/router.tsx`), sin dependencias. Para que las rutas func
 src/
   components/   Navbar, Hero, Marquee, Projects, Sections (servicios y proceso), Contact, Footer, Button, Logo
   pages/        Home, páginas legales, mensaje enviado, 404
-  apps/         Demos de Ekkonomy, NimoGym y SentiMenti
+  apps/         Demos de Ekkonomy, NimoGym y Sentimientos
     Screen.tsx  Renderiza una pantalla exportada del Figma (posiciones absolutas)
     Phone.tsx   Marco del teléfono + navegación entre pantallas al tocar
     data/       Pantallas de cada app en JSON
@@ -50,14 +50,14 @@ Para actualizarlas después de cambiar el Figma:
 1. Correr `scripts/figma/exporter.js` en Figma (con el MCP `use_figma` o un plugin de desarrollo) para cada pantalla y guardar el resultado en `scripts/figma/screens/`.
 2. `node scripts/figma/merge.mjs` arma `src/apps/data/*.json` y avisa si algún botón apunta a una pantalla que no existe.
 
-El logo de SentiMenti es una imagen en el Figma; en la demo se dibuja como texto.
+El logo de Sentimientos (antes SentiMenti) es una imagen en el Figma; en la demo se dibuja como texto.
 
 ## Formulario de contacto
 
 El sitio es estático, así que el formulario no puede mandar mails por sí solo:
 
 - Si se define `VITE_CONTACT_ENDPOINT` (por ejemplo un formulario de [Formspree](https://formspree.io) o una Edge Function de Supabase), se envía por `POST` con `{ nombre, email, mensaje, tipo }`.
-- Si no está definida, abre el cliente de mail del visitante con el mensaje ya armado para `hola@nimotix.com`.
+- Si no está definida, abre el cliente de mail del visitante con el mensaje ya armado para `nimotixsoftware@gmail.com`.
 
 Ver `.env.example`. En GitHub se configura como variable del repo (Settings → Secrets and variables → Actions → Variables).
 
@@ -71,6 +71,5 @@ Ver `.env.example`. En GitHub se configura como variable del repo (Settings → 
 
 ## Pendientes antes de publicar
 
-- Completar los datos entre corchetes de Términos y Privacidad (razón social, CUIT, domicilio, fechas, plazos).
-- Número real de WhatsApp (en `src/components/Contact.tsx`; hoy se muestra el de ejemplo sin link).
+- Definir el plazo de guardado de los datos en Privacidad (hoy dice `[plazo]`).
 - Definir cómo se reciben los mensajes del formulario (`VITE_CONTACT_ENDPOINT`).

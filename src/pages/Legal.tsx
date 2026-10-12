@@ -7,7 +7,7 @@ type Section = [title: string, body: string];
 const TERMS: Section[] = [
   [
     '1. Quiénes somos',
-    'Este sitio pertenece a Nimotix ([razón social], CUIT [número], domicilio en [dirección], Argentina). Para cualquier consulta podés escribirnos a hola@nimotix.com.',
+    'Este sitio pertenece a Nimotix, un equipo de desarrolladores de Argentina. Para cualquier consulta podés escribirnos a nimotixsoftware@gmail.com o por WhatsApp al +54 9 343 532-4268.',
   ],
   [
     '2. Uso del sitio',
@@ -15,7 +15,7 @@ const TERMS: Section[] = [
   ],
   [
     '3. Proyectos mostrados',
-    'Las pantallas de Ekkonomy, NimoGym y SentiMenti son demostraciones con datos ficticios. Las marcas y contenidos de cada proyecto pertenecen a sus titulares y se muestran con su autorización.',
+    'Las pantallas de Ekkonomy, NimoGym y Sentimientos son demostraciones con datos ficticios. Las marcas y contenidos de cada proyecto pertenecen a sus titulares y se muestran con su autorización.',
   ],
   [
     '4. Consultas y presupuestos',
@@ -35,12 +35,12 @@ const TERMS: Section[] = [
   ],
   [
     '8. Ley aplicable',
-    'Estos términos se rigen por las leyes de la República Argentina. Ante cualquier conflicto intervienen los tribunales ordinarios de [ciudad].',
+    'Estos términos se rigen por las leyes de la República Argentina.',
   ],
 ];
 
 const PRIVACY: Section[] = [
-  ['Responsable', '[Razón social] (Nimotix), CUIT [número], domicilio en [dirección]. Contacto: hola@nimotix.com.'],
+  ['Responsable', 'Nimotix. Contacto: nimotixsoftware@gmail.com.'],
   [
     'Qué datos juntamos',
     'Solo los que nos das en el formulario de contacto: nombre, email, tipo de proyecto y el mensaje. Si activamos estadísticas de visitas, se informará acá qué herramienta usamos y qué datos registra.',
@@ -51,11 +51,11 @@ const PRIVACY: Section[] = [
   ],
   [
     'Dónde se guardan y por cuánto tiempo',
-    'Se guardan en [proveedor de mail / servicio] mientras dure la conversación y hasta [plazo] después. Pasado ese plazo los borramos.',
+    'Se guardan en el correo de Nimotix (Gmail) mientras dure la conversación y hasta [plazo] después. Pasado ese plazo los borramos.',
   ],
   [
     'Tus derechos',
-    'Según la Ley 25.326 podés acceder a tus datos, pedir que los corrijamos, actualicemos o borremos, escribiendo a hola@nimotix.com. El acceso es gratuito en intervalos no menores a seis meses, salvo interés legítimo (art. 14, inc. 3).',
+    'Según la Ley 25.326 podés acceder a tus datos, pedir que los corrijamos, actualicemos o borremos, escribiendo a nimotixsoftware@gmail.com. El acceso es gratuito en intervalos no menores a seis meses, salvo interés legítimo (art. 14, inc. 3).',
   ],
   [
     'Órgano de control',
@@ -74,7 +74,10 @@ function LegalPage({ title, sections }: { title: string; sections: Section[] }) 
             ← Volver al inicio
           </Link>
           <h1 className="legal__title">{title}</h1>
-          <p className="legal__updated">Última actualización: [fecha]. Los datos entre corchetes se completan antes de publicar.</p>
+          <p className="legal__updated">
+            Última actualización: 12 de octubre de 2026.
+            {sections.some(([, b]) => b.includes('[')) && ' Los datos entre corchetes se completan antes de publicar.'}
+          </p>
           {sections.map(([t, b]) => (
             <section key={t}>
               <h2>{t}</h2>

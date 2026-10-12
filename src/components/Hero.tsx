@@ -3,7 +3,7 @@ import { Button } from './Button';
 const APPS = [
   { name: 'Ekkonomy', color: '#d6fa3b' },
   { name: 'NimoGym', color: '#ff3d9a' },
-  { name: 'SentiMenti', color: '#1fa89e' },
+  { name: 'Sentimientos', color: '#1fa89e' },
 ];
 
 /** Símbolo de nimotix: el bloque (la "i") gira en su lugar y toma el color de cada app. */

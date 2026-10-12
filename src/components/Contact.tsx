@@ -3,7 +3,7 @@ import { Link, navigate } from '../router';
 import { Arrow } from './Button';
 
 const TYPES = ['App móvil', 'Web app', 'Escritorio', 'Otro'];
-const EMAIL = 'hola@nimotix.com';
+const EMAIL = 'nimotixsoftware@gmail.com';
 
 /**
  * Si existe VITE_CONTACT_ENDPOINT (por ejemplo un form de Formspree o una función de Supabase)
@@ -25,9 +25,8 @@ const CHANNELS = [
   },
   {
     label: 'WhatsApp',
-    value: '+54 9 11 0000-0000',
-    // Número de ejemplo del diseño: cuando esté el real, agregar href: 'https://wa.me/549...'
-    href: '',
+    value: '+54 9 343 532-4268',
+    href: 'https://wa.me/5493435324268',
     icon: <path d="M4 20L5.3 16.2C4.5 14.9 4 13.5 4 12C4 7.6 7.6 4 12 4C16.4 4 20 7.6 20 12C20 16.4 16.4 20 12 20C10.5 20 9.1 19.6 7.9 18.8L4 20Z" />,
   },
   {

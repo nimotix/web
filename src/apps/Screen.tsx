@@ -139,11 +139,11 @@ export function RenderNode({ node: n, onGo }: RenderProps): ReactNode {
   }
 
   if (n.img === 'sentimenti-logo') {
-    // El logo de SentiMenti es una imagen en el Figma: lo resolvemos como wordmark tipográfico.
+    // Logo de Sentimientos (en el Figma es una imagen): lo dibujamos como wordmark tipográfico.
     return (
-      <div style={{ ...style, display: 'flex', alignItems: 'center' }} aria-label="SentiMenti">
+      <div style={{ ...style, display: 'flex', alignItems: 'center' }} aria-label="Sentimientos">
         <span style={{ fontFamily: "'Kadwa', Georgia, serif", fontWeight: 700, fontSize: 24, color: '#1f1b16', letterSpacing: '-0.5px' }}>
-          Senti<span style={{ color: '#1fa89e' }}>Menti</span>
+          Senti<span style={{ color: '#1fa89e' }}>mientos</span>
         </span>
       </div>
     );

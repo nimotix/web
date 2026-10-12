@@ -99,8 +99,8 @@ const PROJECTS: Project[] = [
     },
   },
   {
-    id: 'sentimenti',
-    name: 'SentiMenti',
+    id: 'sentimientos',
+    name: 'Sentimientos',
     badge: 'En diseño',
     kicker: 'Bienestar docente | App móvil para una escuela',
     headline: 'Una práctica diaria para que los docentes aprendan, registren y enseñen competencias emocionales.',

@@ -28,8 +28,9 @@ export function navigate(path: string) {
       () => document.getElementById(hash)?.scrollIntoView({ behavior: changed ? 'auto' : 'smooth' }),
       changed ? 60 : 0,
     );
-  } else if (changed) {
-    window.scrollTo({ top: 0 });
+  } else {
+    // Mismo lugar sin ancla (por ejemplo, el logo estando en la landing): volver arriba.
+    window.scrollTo({ top: 0, behavior: changed ? 'auto' : 'smooth' });
   }
 }
 

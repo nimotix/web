@@ -2,7 +2,7 @@ const SERVICES = [
   {
     title: 'Apps móviles',
     text: 'iPhone y Android con una sola base de código en Flutter. Funcionan sin señal, con notificaciones y Live Activities.',
-    where: 'En: NimoGym · SentiMenti',
+    where: 'En: NimoGym · Sentimientos',
     icon: (
       <>
         <path d="M33.5 18.3335H26.5C24.567 18.3335 23 19.9005 23 21.8335V38.1668C23 40.0998 24.567 41.6668 26.5 41.6668H33.5C35.433 41.6668 37 40.0998 37 38.1668V21.8335C37 19.9005 35.433 18.3335 33.5 18.3335Z" />

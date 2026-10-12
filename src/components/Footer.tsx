@@ -7,7 +7,7 @@ const COLUMNS = [
     links: [
       { to: '/#ekkonomy', label: 'Ekkonomy' },
       { to: '/#nimogym', label: 'NimoGym' },
-      { to: '/#sentimenti', label: 'SentiMenti' },
+      { to: '/#sentimientos', label: 'Sentimientos' },
     ],
   },
   {
