@@ -51,7 +51,7 @@ const PRIVACY: Section[] = [
   ],
   [
     'Dónde se guardan y por cuánto tiempo',
-    'Se guardan en el correo de Nimotix (Gmail) mientras dure la conversación y hasta [plazo] después. Pasado ese plazo los borramos.',
+    'El formulario se envía a través de FormSubmit (formsubmit.co), un servicio que reenvía el mensaje a nuestro correo. Se guardan en el correo de Nimotix (Gmail) mientras dure la conversación y hasta [plazo] después. Pasado ese plazo los borramos.',
   ],
   [
     'Tus derechos',

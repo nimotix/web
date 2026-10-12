@@ -56,8 +56,8 @@ El logo de Sentimientos (antes SentiMenti) es una imagen en el Figma; en la demo
 
 El sitio es estático, así que el formulario no puede mandar mails por sí solo:
 
-- Si se define `VITE_CONTACT_ENDPOINT` (por ejemplo un formulario de [Formspree](https://formspree.io) o una Edge Function de Supabase), se envía por `POST` con `{ nombre, email, mensaje, tipo }`.
-- Si no está definida, abre el cliente de mail del visitante con el mensaje ya armado para `nimotixsoftware@gmail.com`.
+- Por defecto se envía por `POST` a [FormSubmit](https://formsubmit.co) y llega por mail a `nimotixsoftware@gmail.com`. **La primera vez** que alguien lo use, FormSubmit manda un mail de activación a esa casilla: hay que confirmarlo o los mensajes no llegan.
+- Si se define `VITE_CONTACT_ENDPOINT` (por ejemplo un formulario de [Formspree](https://formspree.io) o una Edge Function de Supabase), se usa ese servicio en su lugar. Recibe `{ nombre, email, tipo, mensaje }`.
 
 Ver `.env.example`. En GitHub se configura como variable del repo (Settings → Secrets and variables → Actions → Variables).
 

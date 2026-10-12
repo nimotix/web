@@ -6,10 +6,10 @@ const TYPES = ['App móvil', 'Web app', 'Escritorio', 'Otro'];
 const EMAIL = 'nimotixsoftware@gmail.com';
 
 /**
- * Si existe VITE_CONTACT_ENDPOINT (por ejemplo un form de Formspree o una función de Supabase)
- * el formulario se envía ahí por POST. Si no, abre el cliente de mail con el mensaje armado.
+ * El formulario se envía por POST a FormSubmit, que lo reenvía por mail a EMAIL (sin backend propio).
+ * VITE_CONTACT_ENDPOINT permite usar otro servicio (Formspree, una función de Supabase, etc.).
  */
-const ENDPOINT = import.meta.env.VITE_CONTACT_ENDPOINT as string | undefined;
+const ENDPOINT = (import.meta.env.VITE_CONTACT_ENDPOINT as string | undefined) || `https://formsubmit.co/ajax/${EMAIL}`;
 
 const CHANNELS = [
   {
@@ -53,28 +53,35 @@ export function Contact() {
     const message = String(data.get('mensaje') ?? '').trim();
     setError('');
 
-    if (ENDPOINT) {
-      setSending(true);
-      try {
-        const res = await fetch(ENDPOINT, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
-          body: JSON.stringify({ nombre: name, email, mensaje: message, tipo: type }),
-        });
-        if (!res.ok) throw new Error(String(res.status));
-        navigate('/contacto/enviado');
-      } catch {
-        setError(`No pudimos enviar el mensaje. Probá de nuevo o escribinos a ${EMAIL}.`);
-      } finally {
-        setSending(false);
-      }
+    // Campo trampa para bots: una persona nunca lo completa.
+    if (data.get('_honey')) {
+      navigate('/contacto/enviado');
       return;
     }
 
-    const subject = `Consulta desde la web: ${type}`;
-    const body = `Nombre: ${name}\nEmail: ${email}\nTipo de proyecto: ${type}\n\n${message}`;
-    window.location.href = `mailto:${EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-    navigate('/contacto/enviado');
+    setSending(true);
+    try {
+      const res = await fetch(ENDPOINT, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify({
+          nombre: name,
+          email,
+          tipo: type,
+          mensaje: message,
+          _subject: `Consulta desde la web: ${type}`,
+          _template: 'table',
+          _captcha: 'false',
+        }),
+      });
+      const result = await res.json().catch(() => ({}));
+      if (!res.ok || result.success === 'false' || result.success === false) throw new Error(String(res.status));
+      navigate('/contacto/enviado');
+    } catch {
+      setError(`No pudimos enviar el mensaje. Probá de nuevo o escribinos a ${EMAIL}.`);
+    } finally {
+      setSending(false);
+    }
   }
 
   return (
@@ -115,6 +122,7 @@ export function Contact() {
           </div>
 
           <form className="contact__form" onSubmit={onSubmit}>
+            <input type="text" name="_honey" tabIndex={-1} autoComplete="off" aria-hidden="true" className="visually-hidden" />
             <label className="field">
               <span className="field__label">Nombre</span>
               <input name="nombre" type="text" placeholder="Cómo te llamás" required autoComplete="name" />

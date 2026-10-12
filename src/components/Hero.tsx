@@ -6,6 +6,13 @@ const APPS = [
   { name: 'Sentimientos', color: '#1fa89e' },
 ];
 
+/** Un lema por color del símbolo, en el mismo orden del giro: Ni (lima), Mo (rosa), Ti (verde azulado). */
+const LEMAS = [
+  { prefix: 'ni', rest: 'velamos tu empresa.' },
+  { prefix: 'mo', rest: 'dernizamos tu gestión.' },
+  { prefix: 'ti', rest: 'empos optimizados.' },
+];
+
 /** Símbolo de nimotix: el bloque (la "i") gira en su lugar y toma el color de cada app. */
 function AnimatedSymbol() {
   return (
@@ -27,11 +34,22 @@ export function Hero() {
       <div className="hero__inner container">
         <div className="hero__copy">
           <h1 id="hero-title" className="hero__title">
-            Sistematizamos tu idea
+            <span className="visually-hidden">
+              nimotix. {LEMAS.map((l) => `${l.prefix}${l.rest}`).join(' ')}
+            </span>
+            <span className="lemas" aria-hidden="true">
+              <span className="lema lema--nimotix">nimotix.</span>
+              {LEMAS.map((l) => (
+                <span key={l.prefix} className={`lema lema--${l.prefix.toLowerCase()}`}>
+                  <span className="lema__prefix">{l.prefix}</span>
+                  {l.rest}
+                </span>
+              ))}
+            </span>
           </h1>
           <p className="hero__lead">
-            Somos Nimotix, un equipo de estudiantes desarrolladores. Nos encargamos del diseño, el código, la publicación
-            en las tiendas y el mantenimiento. Más abajo podés probar las apps que hicimos.
+            Somos Nimotix, un equipo de estudiantes de informática. Nos encargamos del diseño, el código, la publicación
+            en las tiendas y el mantenimiento.
           </p>
           <div className="hero__actions">
             <Button to="/#proyectos">Ver proyectos</Button>

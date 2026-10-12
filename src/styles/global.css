@@ -289,6 +289,117 @@ textarea {
   letter-spacing: -2.4px;
 }
 
+/* Los lemas comparten celda para que el título no cambie de alto; cada uno
+   entra cuando el bloque del símbolo (mismo ciclo de 8.8s) toma su color. */
+.lemas {
+  display: grid;
+}
+
+.lema {
+  grid-area: 1 / 1;
+  opacity: 0;
+  animation-duration: 8.8s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+}
+
+.lema__prefix {
+  color: var(--lema-color);
+}
+
+.lema--nimotix {
+  animation-name: lema-nimotix;
+}
+
+.lema--ni {
+  --lema-color: var(--lime);
+  animation-name: lema-ni;
+}
+
+.lema--mo {
+  --lema-color: var(--pink);
+  animation-name: lema-mo;
+}
+
+.lema--ti {
+  --lema-color: var(--teal);
+  animation-name: lema-ti;
+}
+
+@keyframes lema-nimotix {
+  0%,
+  14.77% {
+    opacity: 1;
+    transform: none;
+  }
+  18.75%,
+  93.75% {
+    opacity: 0;
+    transform: translateY(-14px);
+  }
+  93.76% {
+    transform: translateY(14px);
+  }
+  100% {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes lema-ni {
+  0%,
+  14.77% {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  18.75%,
+  39.77% {
+    opacity: 1;
+    transform: none;
+  }
+  43.75%,
+  100% {
+    opacity: 0;
+    transform: translateY(-14px);
+  }
+}
+
+@keyframes lema-mo {
+  0%,
+  39.77% {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  43.75%,
+  64.77% {
+    opacity: 1;
+    transform: none;
+  }
+  68.75%,
+  100% {
+    opacity: 0;
+    transform: translateY(-14px);
+  }
+}
+
+@keyframes lema-ti {
+  0%,
+  64.77% {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  68.75%,
+  89.77% {
+    opacity: 1;
+    transform: none;
+  }
+  93.75%,
+  100% {
+    opacity: 0;
+    transform: translateY(-14px);
+  }
+}
+
 .hero__lead {
   margin-top: 28px;
   max-width: 580px;
@@ -1589,6 +1700,17 @@ a.channel[href]:hover {
   .hint__halo,
   .phone__app {
     animation: none;
+  }
+  .lemas {
+    display: block;
+  }
+  .lema {
+    display: block;
+    animation: none;
+    opacity: 1;
+  }
+  .lema--nimotix {
+    display: none;
   }
   html {
     scroll-behavior: auto;
