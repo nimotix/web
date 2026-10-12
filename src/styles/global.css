@@ -277,13 +277,14 @@ textarea {
 
 .hero__inner {
   display: grid;
-  grid-template-columns: minmax(0, 760px) minmax(0, 1fr);
-  gap: 40px;
+  /* 800px alcanza para que "modernizamos tu gestión." entre en una línea (764px a 68px). */
+  grid-template-columns: minmax(0, 800px) 370px;
+  gap: 30px;
   align-items: center;
 }
 
 .hero__title {
-  font-size: clamp(42px, 2.4vw + 26px, 72px);
+  font-size: clamp(42px, 2.4vw + 26px, 68px);
   line-height: 1.083;
   font-weight: 800;
   letter-spacing: -2.4px;
