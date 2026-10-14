@@ -23,6 +23,8 @@ const COLUMNS = [
     links: [
       { to: '/terminos', label: 'Términos y condiciones' },
       { to: '/privacidad', label: 'Política de privacidad' },
+      { to: '/nimogym/privacidad', label: 'Privacidad de NimoGym' },
+      { to: '/nimogym/soporte', label: 'Soporte de NimoGym' },
       { href: 'https://www.argentina.gob.ar/defensadelconsumidor', label: 'Defensa del consumidor' },
     ],
   },

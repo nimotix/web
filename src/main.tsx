@@ -10,7 +10,7 @@ import '@fontsource/arimo/700.css';
 import '@fontsource/arimo/400-italic.css';
 import '@fontsource/averia-libre/400.css';
 import './styles/global.css';
-import { Privacy, Terms } from './pages/Legal';
+import { NimoGymDelete, NimoGymPrivacy, NimoGymSupport, Privacy, Terms } from './pages/Legal';
 import { Home, MessageSent, NotFound } from './pages/Pages';
 import { usePath } from './router';
 
@@ -19,6 +19,9 @@ const TITLES: Record<string, string> = {
   '/terminos': 'Términos y condiciones · Nimotix',
   '/privacidad': 'Política de privacidad · Nimotix',
   '/contacto/enviado': 'Mensaje enviado · Nimotix',
+  '/nimogym/privacidad': 'Política de privacidad de NimoGym · Nimotix',
+  '/nimogym/eliminar-cuenta': 'Eliminar cuenta de NimoGym · Nimotix',
+  '/nimogym/soporte': 'Soporte de NimoGym · Nimotix',
 };
 
 function App() {
@@ -41,6 +44,12 @@ function App() {
       return <Terms />;
     case '/privacidad':
       return <Privacy />;
+    case '/nimogym/privacidad':
+      return <NimoGymPrivacy />;
+    case '/nimogym/eliminar-cuenta':
+      return <NimoGymDelete />;
+    case '/nimogym/soporte':
+      return <NimoGymSupport />;
     case '/contacto/enviado':
       return <MessageSent />;
     default:

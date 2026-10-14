@@ -6,7 +6,7 @@ import { useEffect, useState, type AnchorHTMLAttributes, type MouseEvent } from 
  */
 const BASE = import.meta.env.BASE_URL.replace(/\/$/, '');
 
-export type Route = '/' | '/terminos' | '/privacidad' | '/contacto/enviado';
+export type Route = '/' | '/terminos' | '/privacidad' | '/contacto/enviado' | '/nimogym/privacidad' | '/nimogym/eliminar-cuenta' | '/nimogym/soporte';
 
 function currentPath(): string {
   const p = window.location.pathname.slice(BASE.length) || '/';

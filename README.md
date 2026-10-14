@@ -71,5 +71,5 @@ Ver `.env.example`. En GitHub se configura como variable del repo (Settings → 
 
 ## Pendientes antes de publicar
 
-- Definir el plazo de guardado de los datos en Privacidad (hoy dice `[plazo]`).
+- Revisar el plazo de guardado del formulario en Privacidad (hoy 12 meses).
 - Definir cómo se reciben los mensajes del formulario (`VITE_CONTACT_ENDPOINT`).
