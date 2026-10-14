@@ -4,7 +4,6 @@ const SERVICES = [
   {
     title: 'Apps móviles',
     text: 'iPhone y Android con una sola base de código en Flutter. Funcionan sin señal, con notificaciones y Live Activities.',
-    where: 'En: NimoGym · Sentimientos',
     icon: (
       <>
         <path d="M33.5 18.3335H26.5C24.567 18.3335 23 19.9005 23 21.8335V38.1668C23 40.0998 24.567 41.6668 26.5 41.6668H33.5C35.433 41.6668 37 40.0998 37 38.1668V21.8335C37 19.9005 35.433 18.3335 33.5 18.3335Z" />
@@ -15,7 +14,6 @@ const SERVICES = [
   {
     title: 'Web apps y PWA',
     text: 'Aplicaciones web con React y TypeScript que se instalan en el celular o la compu como una app.',
-    where: 'En: Ekkonomy',
     icon: (
       <>
         <path d="M39.3333 20.6665H20.6666C19.378 20.6665 18.3333 21.7112 18.3333 22.9998V34.6665C18.3333 35.9552 19.378 36.9998 20.6666 36.9998H39.3333C40.622 36.9998 41.6666 35.9552 41.6666 34.6665V22.9998C41.6666 21.7112 40.622 20.6665 39.3333 20.6665Z" />
@@ -26,7 +24,6 @@ const SERVICES = [
   {
     title: 'Software de escritorio',
     text: 'Apps para Windows pensadas para el mostrador o la oficina: tablas, grillas y editores completos.',
-    where: 'En: NimoGym (profesores)',
     icon: (
       <>
         <path d="M38.1667 20.6665H21.8333C20.5447 20.6665 19.5 21.7112 19.5 22.9998V32.3332C19.5 33.6218 20.5447 34.6665 21.8333 34.6665H38.1667C39.4553 34.6665 40.5 33.6218 40.5 32.3332V22.9998C40.5 21.7112 39.4553 20.6665 38.1667 20.6665Z" />
@@ -37,7 +34,6 @@ const SERVICES = [
   {
     title: 'Backend y mantenimiento',
     text: 'Login, base de datos, archivos y permisos con Supabase. Publicamos, actualizamos y damos soporte.',
-    where: 'En: Todas',
     icon: (
       <>
         <path d="M30 25.3335C35.1546 25.3335 39.3333 23.7665 39.3333 21.8335C39.3333 19.9005 35.1546 18.3335 30 18.3335C24.8453 18.3335 20.6666 19.9005 20.6666 21.8335C20.6666 23.7665 24.8453 25.3335 30 25.3335Z" />
@@ -53,7 +49,7 @@ export function Services() {
       <div className="container">
         <p className="kicker" data-reveal>Qué hacemos</p>
         <h2 id="services-title" className="section-title" data-reveal>
-          Del diseño a la tienda, y después también
+          Fieles a tus proyectos
         </h2>
         <ul className="services__grid">
           {SERVICES.map((s, i) => (
@@ -66,7 +62,6 @@ export function Services() {
               </svg>
               <h3 className="service__title">{s.title}</h3>
               <p className="service__text">{s.text}</p>
-              <p className="service__where">{s.where}</p>
             </li>
           ))}
         </ul>
