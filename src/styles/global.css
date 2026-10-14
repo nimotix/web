@@ -1392,6 +1392,51 @@ a.channel[href]:hover {
    Responsive
    ========================================================================== */
 
+/* Pantallas grandes (monitores de 1700px o más): la columna crece y las secciones se reparten el ancho */
+@media (min-width: 1700px) {
+  :root {
+    --container: 1440px;
+    --gutter: 64px;
+  }
+  .section-title {
+    max-width: 960px;
+  }
+  .hero {
+    min-height: min(1000px, 100vh);
+  }
+  .hero__inner {
+    grid-template-columns: minmax(0, 1fr) 420px;
+  }
+  .project {
+    column-gap: 96px;
+    padding-inline: 112px;
+  }
+  .project--phone-left {
+    column-gap: 160px;
+    padding-inline: 112px;
+  }
+  .project__copy {
+    max-width: 640px;
+  }
+  .project__features {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .process__steps {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 48px;
+  }
+  .contact__card {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 620px);
+    padding: 88px;
+  }
+}
+
+@media (min-width: 2400px) {
+  :root {
+    --container: 1680px;
+  }
+}
+
 /* Pantallas medianas (notebooks de 1280-1440) */
 @media (max-width: 1320px) {
   .project {
