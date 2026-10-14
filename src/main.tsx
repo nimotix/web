@@ -13,6 +13,7 @@ import './styles/global.css';
 import { NimoGymDelete, NimoGymPrivacy, NimoGymSupport, Privacy, Terms } from './pages/Legal';
 import { Home, MessageSent, NotFound } from './pages/Pages';
 import { usePath } from './router';
+import { useButtonGlow } from './useButtonGlow';
 
 const TITLES: Record<string, string> = {
   '/': 'Nimotix · Sistematizamos tu idea',
@@ -26,6 +27,7 @@ const TITLES: Record<string, string> = {
 
 function App() {
   const path = usePath();
+  useButtonGlow();
 
   useEffect(() => {
     document.title = TITLES[path] ?? 'Página no encontrada · Nimotix';

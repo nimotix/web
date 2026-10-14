@@ -1764,3 +1764,185 @@ a.channel[href]:hover {
     scroll-behavior: auto;
   }
 }
+
+/* ==========================================================================
+   Animaciones: transición entre secciones, aparición al bajar y hovers
+   ========================================================================== */
+
+/* Franja degradada en el borde entre secciones de distinto fondo (vive en el padding vacío de la sección de arriba). */
+.services,
+.process,
+.contact {
+  position: relative;
+}
+
+.services::before,
+.process::before,
+.contact::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 100%;
+  height: 90px;
+  pointer-events: none;
+  background: linear-gradient(to bottom, var(--seam-from), var(--seam-to));
+}
+
+.services {
+  --seam-from: var(--bone);
+  --seam-to: var(--white);
+}
+
+.process {
+  --seam-from: var(--white);
+  --seam-to: var(--ink);
+}
+
+.contact {
+  --seam-from: var(--ink);
+  --seam-to: var(--bone);
+}
+
+/* Aparición al entrar en pantalla (solo si hay JS; sin él todo se ve normal) */
+.js-reveal [data-reveal] {
+  opacity: 0;
+  translate: 0 28px;
+  transition:
+    opacity 0.7s var(--ease-out),
+    translate 0.7s var(--ease-out);
+  transition-delay: calc(var(--i, 0) * 110ms);
+}
+
+.js-reveal [data-reveal].is-in {
+  opacity: 1;
+  translate: 0 0;
+}
+
+/* Etapas: el cuadradito salta y se enciende, y el número toma su color */
+.step__marker {
+  transition:
+    transform 0.45s cubic-bezier(0.34, 1.56, 0.64, 1),
+    box-shadow 0.3s ease-out,
+    border-radius 0.3s ease-out;
+}
+
+.step__number {
+  transition: color 0.3s ease-out, transform 0.45s var(--ease-out);
+}
+
+.step__title {
+  transition: transform 0.45s var(--ease-out);
+}
+
+.step:hover .step__marker {
+  transform: translateY(-8px) rotate(90deg) scale(1.25);
+  border-radius: 6px;
+  box-shadow: 0 0 22px 2px var(--c);
+}
+
+.step:hover .step__number {
+  color: var(--c);
+  transform: translateX(6px);
+}
+
+.step:hover .step__title {
+  transform: translateX(6px);
+}
+
+.is-in .step__marker,
+.step.is-in .step__marker {
+  animation: marker-pop 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+  animation-delay: calc(var(--i, 0) * 110ms + 250ms);
+}
+
+@keyframes marker-pop {
+  from {
+    transform: scale(0);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+/* Servicios: la tarjeta se levanta y el ícono se mueve */
+.service {
+  transition:
+    opacity 0.7s var(--ease-out),
+    translate 0.7s var(--ease-out),
+    transform 0.35s var(--ease-out),
+    box-shadow 0.35s ease-out,
+    background-color 0.35s ease-out;
+}
+
+.service__icon {
+  transition: transform 0.45s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.service:hover {
+  transform: translateY(-8px);
+  background: var(--bone);
+  box-shadow: 0 18px 40px -18px rgba(20, 20, 20, 0.35);
+}
+
+.service:hover .service__icon {
+  transform: rotate(-8deg) scale(1.1);
+}
+
+/* Botones: brillo suave */
+.btn {
+  transition:
+    background-color 0.2s ease-out,
+    border-color 0.2s ease-out,
+    color 0.2s ease-out,
+    transform 0.2s ease-out,
+    box-shadow 0.25s ease-out;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+}
+
+.btn--primario:hover {
+  box-shadow: 0 0 26px color-mix(in srgb, var(--glow, var(--lime)) 45%, transparent);
+}
+
+.btn--contorno-claro:hover {
+  border-color: var(--glow, var(--bone));
+  box-shadow: 0 0 22px color-mix(in srgb, var(--glow, var(--bone)) 40%, transparent);
+}
+
+/* Contacto, enlaces y chips */
+a.channel[href]:hover {
+  box-shadow: 0 0 20px rgba(236, 232, 225, 0.12);
+}
+
+.project {
+  transition: transform 0.4s var(--ease-out), box-shadow 0.4s ease-out;
+}
+
+.project:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 30px 60px -30px rgba(20, 20, 20, 0.45);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .js-reveal [data-reveal] {
+    opacity: 1;
+    translate: none;
+    transition: none;
+  }
+  .step.is-in .step__marker {
+    animation: none;
+  }
+  .step:hover .step__marker,
+  .service:hover,
+  .btn:hover,
+  .project:hover {
+    transform: none;
+  }
+}
+
+.btn--oscuro:hover {
+  box-shadow: 0 0 24px color-mix(in srgb, var(--glow, var(--lime)) 55%, transparent);
+}

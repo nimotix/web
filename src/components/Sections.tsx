@@ -1,3 +1,5 @@
+import type { CSSProperties } from 'react';
+
 const SERVICES = [
   {
     title: 'Apps móviles',
@@ -49,13 +51,13 @@ export function Services() {
   return (
     <section id="que-hacemos" className="services" aria-labelledby="services-title">
       <div className="container">
-        <p className="kicker">Qué hacemos</p>
-        <h2 id="services-title" className="section-title">
+        <p className="kicker" data-reveal>Qué hacemos</p>
+        <h2 id="services-title" className="section-title" data-reveal>
           Del diseño a la tienda, y después también
         </h2>
         <ul className="services__grid">
-          {SERVICES.map((s) => (
-            <li key={s.title} className="service">
+          {SERVICES.map((s, i) => (
+            <li key={s.title} className="service" data-reveal style={{ '--i': i } as CSSProperties}>
               <svg className="service__icon" width="60" height="60" viewBox="0 0 60 60" fill="none" aria-hidden="true">
                 <rect width="60" height="60" rx="18" fill="#141414" />
                 <g stroke="#ECE8E1" strokeWidth="2.33333" strokeLinecap="round" strokeLinejoin="round">
@@ -104,13 +106,13 @@ export function Process() {
   return (
     <section id="como-trabajamos" className="process" aria-labelledby="process-title">
       <div className="container">
-        <p className="kicker">Cómo trabajamos</p>
-        <h2 id="process-title" className="section-title section-title--light">
+        <p className="kicker" data-reveal>Cómo trabajamos</p>
+        <h2 id="process-title" className="section-title section-title--light" data-reveal>
           Cuatro etapas, siempre a la vista
         </h2>
         <ol className="process__steps">
-          {STEPS.map((s) => (
-            <li key={s.n} className="step">
+          {STEPS.map((s, i) => (
+            <li key={s.n} className="step" data-reveal style={{ '--i': i, '--c': s.color } as CSSProperties}>
               <span className="step__marker" style={{ background: s.color }} aria-hidden="true" />
               <span className="step__number" aria-hidden="true">
                 {s.n}

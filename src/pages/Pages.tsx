@@ -6,8 +6,10 @@ import { Navbar } from '../components/Navbar';
 import { Projects } from '../components/Projects';
 import { Process, Services } from '../components/Sections';
 import { Link } from '../router';
+import { useReveal } from '../useReveal';
 
 export function Home() {
+  useReveal();
   return (
     <>
       <Navbar />
